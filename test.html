@@ -1,0 +1,43 @@
+<style>
+    body{
+        font-family: sans-serif;
+    }
+    .countries{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .country{
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 5px 0;
+        border-radius: 10px;
+        width: fit-content;
+        z-index: 1;
+        overflow: hidden;
+    }
+    img{
+        aspect-ratio: 3/2;
+        height: calc(600px*(20/100));
+        width: calc(900px*(20/100));
+    }
+    .c-details{
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .c-details p{
+        margin: 2px 0;
+    }
+</style>
+<div class="country">
+    <img src="https://flagcdn.com/eg.svg">
+    <div class="c-details">
+        <h3>Egypt</h3>
+        <p>Capital: <span id="cap">Cairo</span></p>
+        <p>Region: <span id="reg">Africa</span></p>
+        <p>Population: <span id="pop">100000000</span></p>
+    </div>
+</div>
