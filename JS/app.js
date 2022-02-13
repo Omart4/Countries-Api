@@ -1,5 +1,6 @@
 const country = document.getElementById('country')
 const countryContainer = document.querySelector('.countries')
+let countryList = []
 
 function Hi(){
     const xml = new XMLHttpRequest();
@@ -11,7 +12,9 @@ function Hi(){
         const data = JSON.parse(this.responseText)
         console.log(data)
         let text = ''
-        data.forEach(cou => {
+        data.forEach(c => countryList.push(c))
+        countryList.sort((a,b)=>a.name.common>b.name.common?1:-1)
+        countryList.forEach(cou => {
             text += 
             `
             <div class="country">
