@@ -1,5 +1,29 @@
+:root{
+    --imageHeight:calc(600px*(35/100));
+    --imageWidth:calc(900px*(35/100));
+    --lightBack:hsl(0, 0%, 98%);
+    --lightNav:rgb(224, 224, 224);
+}
 body{
     font-family: sans-serif;
+    background-color: var(--lightBack);
+    margin: 0;
+}
+@media only screen and (max-width:375px){
+    .country{
+        height: 30vh;
+        max-width: calc(900px*(15/100));
+    }
+    h2{
+        margin: 5px 0;
+    }
+    img{
+        aspect-ratio: 3/2;
+        height: auto;
+        width: auto;
+        max-height: calc(600px*(15/100));
+        max-width: 100%;
+    }    
 }
 .countries{
     display: flex;
@@ -13,22 +37,81 @@ body{
     flex-direction: column;
     box-shadow: -1px 1px 20px -9px;
     border-radius: 5px;
-    width: fit-content;
-    max-width: calc(900px*(30/100));
+    height: auto;
+    width: var(--imageWidth);
     z-index: 1;
     overflow: hidden;
+    cursor: pointer;
+    background-color: var(--lightBack);
 }
 img{
     aspect-ratio: 3/2;
-    height: calc(600px*(30/100));
-    width: calc(900px*(30/100));
+    height: var(--imageHeight);
+    width: 100%;
 }
 .c-details{
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 15px 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    font-size: .9rem;
 }
 .c-details p{
     margin: 2px 0;
 }
+
+/*Navbar Styling*/
+.navbar{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: .5rem 2rem .5rem 2rem;
+    background-color: var(--lightNav);
+    align-items: center;
+    -webkit-box-shadow: 0 4px 6px -6px #222;
+    -moz-box-shadow: 0 4px 6px -6px #222;
+    box-shadow: 0 4px 6px -6px #222;
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 2rem .5rem 2rem;
+    height: 4rem;
+    background-color: var(--lightNav);
+    position: relative;
+    width: 96.5%;
+    z-index: 5;
+}
+#s-c{
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15pt;
+    width: 45%;
+    min-width: 250px;
+    border: none;
+    color: hsl(0, 0%, 52%);
+    background-color: var(--lightBack);
+}
+#s-c:focus{
+    border: 1px solid cyan;
+}
+#region{
+    padding: 10px;
+    outline: none;
+    border: none;
+    margin-bottom: 2px;
+    background-color: var(--lightBack);
+}
+#region option{
+    padding: 5px;
+    font-size: 1rem;
+}
+

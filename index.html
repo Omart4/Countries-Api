@@ -8,9 +8,26 @@
     <title>Countries REST</title>
 </head>
 <body>
-    <nav class="navbar"></nav>
+    <nav class="navbar">
+        <div class="title">
+            <h3>Where in the world?</h3>
+            <p><i class="fa-solid fa-moon"></i> Dark Mode</p>
+        </div>
+        <div class="search">
+            <input id="s-c" type="text" placeholder="Search for a country...">
+            <select name="region" id="region">
+                <option value="" selected disabled hidden>Filter by Region</option>
+                <option value="Africa">Africa</option>
+                <option value="Americas">Americas</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+        </div>
+    </nav>
     <div class="filtering"></div>
     <div class="countries"></div>
     <script src="./JS/app.js"></script>
+    <script src="https://kit.fontawesome.com/8014902ffe.js" crossorigin="anonymous"></script>
 </body>
 </html>
