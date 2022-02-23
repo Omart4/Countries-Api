@@ -1,6 +1,7 @@
 const country = document.getElementById('country')
 const countryContainer = document.querySelector('.countries')
 const body = document.body;
+const searchBar = document.getElementById('s-c')
 let countryList = []
 let cs = []
 
@@ -10,13 +11,9 @@ xml.open('GET',`https://restcountries.com/v3.1/all`)
 xml.onload = Getter;
 xml.send();
 
-function Getter(){
-    const data = JSON.parse(this.responseText)
-    console.log(data)
-        let text = ''
-        data.forEach(c => countryList.push(c))
-        countryList.sort((a,b)=>a.name.common>b.name.common?1:-1)
-    countryList.forEach(cou => {
+const Builder = x =>{
+    let text = ''
+    x.forEach(cou => {
         text += 
         `
         <div class="country" id="${cou.name.common}">
@@ -32,6 +29,27 @@ function Getter(){
     })
     countryContainer.innerHTML = text;
 }
+
+function Getter(){
+    const data = JSON.parse(this.responseText)
+    data.forEach(c => countryList.push(c))
+    countryList.sort((a,b)=>a.name.common>b.name.common?1:-1)
+    Builder(countryList)
+    document.querySelectorAll('.country').forEach(n=>{
+        n.addEventListener('click',function(e){
+            console.log(n.id)
+        })
+    })
+}
+
+function searchF(){
+    let place = searchBar.value.toLowerCase();
+    let results = countryList.filter(a => a.name.common.toLowerCase().includes(place))
+    results.sort((a,b)=>a.name.common>b.name.common?1:-1)
+    Builder(results)
+}
+searchBar.addEventListener('keyup',searchF)
+
 
 
 
